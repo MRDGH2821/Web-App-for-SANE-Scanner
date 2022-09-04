@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server/index.js",
-    "monitor": "npx nodemon ./server/index.js"
+    "monitor": "npx nodemon ./server/index.js",
+    "pm2:prod": "pm2 startOrRestart web-app.config.cjs --env prod"
   },
   "keywords": [
     "scan",
