@@ -5,7 +5,7 @@ module.exports = {
         NODE_ENV: 'production',
       },
       name: 'Web App for SANE Scanner',
-      script: 'index.js',
+      script: './server/index.js',
       watch: 'false',
     },
   ],
