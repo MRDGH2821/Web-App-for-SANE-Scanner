@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    Scanner
+    <script>
+      async function getScan() {
+        const format = document.getElementById('format').innerHTML;
+        const scan_res = document.getElementById('scan_resolution').innerHTML;
+        const mode = document.getElementById('scan_mode').innerHTML;
+        const resp = await fetch(`http://localhost:3000/scan/${format}/${scan_res}/${mode}`);
+        console.log(resp);
+      }
+    </script>
+  </head>
+
+  <body>
+    <form action="/scan/" method="post">
+      <table>
+        <tr>
+          <td>Format</td>
+          <td>
+            <select name="format" id="format">
+              <option value="jpeg" selected>JPG (default)</option>
+              <option value="png">PNG</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Resolution (dpi):</td>
+          <td>
+            <select name="scan_resolution" id="scan_resolution">
+              <option value="auto">Auto</option>
+              <option value="75" selected>75 dpi (default)</option>
+              <option value="150">150 dpi</option>
+              <option value="300">300 dpi</option>
+              <option value="600">600 dpi</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Mode:</td>
+          <td>
+            <select name="scan_mode" id="scan_mode">
+              <option value="auto">Auto</option>
+              <option value="Color" selected>Color (default)</option>
+              <option value="Gray">Gray</option>
+              <option value="Lineart">Lineart</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+
+      <button type="submit">Scan Document & Download</button>
+    </form>
+  </body>
+</html>
